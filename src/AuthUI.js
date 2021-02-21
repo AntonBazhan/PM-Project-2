@@ -14,6 +14,8 @@ class AuthUI {
     this.email = document.getElementById("email");
     this.registrationPassword = document.getElementById("registrationPassword");
 
+    this.trelloIMG = document.getElementById("trello-img");
+
     this.render = this.render.bind(this);
     this.registerListeners = this.registerListeners.bind(this);
     this.loginFormSubmit = this.loginFormSubmit.bind(this);
@@ -24,6 +26,7 @@ class AuthUI {
   render() {
     if (User.token) {
       // this.registrationForm.classList.add("hide");
+      this.trelloIMG.classList.add("hide");
       this.loginForm.classList.add("hide");
       this.authorized.classList.remove("hide");
     } else {
