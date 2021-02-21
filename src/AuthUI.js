@@ -19,23 +19,35 @@ class AuthUI {
     this.logInBtn = document.getElementById("logInBtn");
     this.signUpBtn = document.getElementById("signUpBtn");
 
+    this.logoutBtn = document.getElementById("logoutBtn");
+
     this.render = this.render.bind(this);
     this.registerListeners = this.registerListeners.bind(this);
     this.loginFormSubmit = this.loginFormSubmit.bind(this);
+
+    this.onClickLoginBtn = this.onClickLoginBtn.bind(this);
+    this.onClickSignUpBtn = this.onClickSignUpBtn.bind(this);
+
+    this.onClickLogoutBtn = this.onClickLogoutBtn.bind(this);
 
     this.registerListeners();
   }
 
   render() {
     if (User.token) {
-      // this.registrationForm.classList.add("hide");
+      this.registrationForm.classList.add("hide");
       this.trelloIMG.classList.add("hide");
       this.loginForm.classList.add("hide");
+      this.logInBtn.classList.add("hide");
+      this.signUpBtn.classList.add("hide");
       this.authorized.classList.remove("hide");
     } else {
-      // this.registrationForm.classList.remove("hide");
+      this.registrationForm.classList.add("hide");
       this.loginForm.classList.remove("hide");
       this.authorized.classList.add("hide");
+      this.logInBtn.classList.remove("hide").add("active");
+      this.signUpBtn.classList.remove("hide").remove("active");
+      this.trelloIMG.classList.remove("hide");
     }
   }
 
@@ -61,11 +73,22 @@ class AuthUI {
   onClickLoginBtn() {
     this.logInBtn.classList.toggle("active");
     this.signUpBtn.classList.toggle("active");
+
+    this.loginForm.classList.remove("hide");
+    this.registrationForm.classList.add("hide");
   }
 
   onClickSignUpBtn() {
-    this.logInBtn.classList.toggle("active");
     this.signUpBtn.classList.toggle("active");
+    this.logInBtn.classList.toggle("active");
+
+    this.registrationForm.classList.remove("hide");
+    this.loginForm.classList.add("hide");
+  }
+
+  onClickLogoutBtn() {
+    window.localStorage.removeItem("token");
+    this.render();
   }
 
   registerListeners() {
@@ -79,6 +102,8 @@ class AuthUI {
     this.logInBtn.addEventListener("click", this.onClickLoginBtn);
 
     this.signUpBtn.addEventListener("click", this.onClickSignUpBtn);
+
+    this.logoutBtn.addEventListener("click", this.onClickLogoutBtn);
 
     emitter.subscribe("loggedIn", this.render);
     emitter.subscribe("unauthorizedRequest", this.render);

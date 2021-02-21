@@ -44,17 +44,18 @@
         </div>
       </div>
       <div class="authorization">
-        <form id="loginForm" class="hide">
+        <form id="loginForm">
           <input type="text" placeholder="Name" id="username" />
           <input type="password" placeholder="Password" id="password" />
           <button type="submit">Login</button>
         </form>
 
         <div id="authorized" class="hide">You are logged in</div>
+        <button id="logoutBtn" class="btn active">Logout</button>
       </div>
 
       <div class="registration">
-        <form id="registrationForm">
+        <form id="registrationForm" class="hide">
           <input type="text" placeholder="Nickname" id="userNickName" />
           <input type="text" placeholder="Email" id="email" />
           <input type="password" placeholder="Password" id="registrationPassword" />
