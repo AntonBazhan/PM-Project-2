@@ -46,10 +46,10 @@ header {
   padding-right: 10px;
 }
 
-.header__signup__button {
-  background-color: #fff;
+.btn {
+  background-color: #2973c1;
   border: none;
-  color: #2973c1;
+  color: #fff;
   padding: 7px 10px;
   text-align: center;
   text-decoration: none;
@@ -59,6 +59,11 @@ header {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.btn.active {
+  background-color: #fff;
+  color: #2973c1;
 }
 
 .hero__container {

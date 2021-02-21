@@ -16,6 +16,9 @@ class AuthUI {
 
     this.trelloIMG = document.getElementById("trello-img");
 
+    this.logInBtn = document.getElementById("logInBtn");
+    this.signUpBtn = document.getElementById("signUpBtn");
+
     this.render = this.render.bind(this);
     this.registerListeners = this.registerListeners.bind(this);
     this.loginFormSubmit = this.loginFormSubmit.bind(this);
@@ -55,6 +58,16 @@ class AuthUI {
     });
   }
 
+  onClickLoginBtn() {
+    this.logInBtn.classList.toggle("active");
+    this.signUpBtn.classList.toggle("active");
+  }
+
+  onClickSignUpBtn() {
+    this.logInBtn.classList.toggle("active");
+    this.signUpBtn.classList.toggle("active");
+  }
+
   registerListeners() {
     this.loginForm.addEventListener("submit", this.loginFormSubmit);
 
@@ -62,6 +75,10 @@ class AuthUI {
       "submit",
       this.registrationFormSubmit
     );
+
+    this.logInBtn.addEventListener("click", this.onClickLoginBtn);
+
+    this.signUpBtn.addEventListener("click", this.onClickSignUpBtn);
 
     emitter.subscribe("loggedIn", this.render);
     emitter.subscribe("unauthorizedRequest", this.render);

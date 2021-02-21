@@ -12,8 +12,12 @@ export default class AuthService {
         password,
       },
     }).then((data) => {
-      User.token = data.jwt;
-      emitter.emit("loggedIn");
+      if (data.statusCode === 200) {
+        User.token = data.jwt;
+        emitter.emit("loggedIn");
+      } else {
+        console.log("wrong login or password");
+      }
     });
   }
 
