@@ -45,8 +45,10 @@ class AuthUI {
       this.registrationForm.classList.add("hide");
       this.loginForm.classList.remove("hide");
       this.authorized.classList.add("hide");
-      this.logInBtn.classList.remove("hide").add("active");
-      this.signUpBtn.classList.remove("hide").remove("active");
+      this.logInBtn.classList.remove("hide");
+      this.logInBtn.classList.add("active");
+      this.signUpBtn.classList.remove("hide");
+      this.signUpBtn.classList.remove("active");
       this.trelloIMG.classList.remove("hide");
     }
   }
