@@ -73,7 +73,7 @@ class AuthUI {
   }
 
   toggleNotAuthorizedBlock() {
-    this.notAuthorized.remove("hide");
+    this.notAuthorized.classList.remove("hide");
   }
 
   registerListeners() {
