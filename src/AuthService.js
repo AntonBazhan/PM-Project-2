@@ -12,11 +12,11 @@ export default class AuthService {
         password,
       },
     }).then((data) => {
-      if (data.statusCode === 200) {
+      if (data.jwt) {
         User.token = data.jwt;
         emitter.emit("loggedIn");
       } else {
-        console.log("wrong login or password");
+        emitter.emit("notAuthorized");
       }
     });
   }

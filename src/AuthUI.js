@@ -4,32 +4,8 @@ import emitter from "./EventEmitter";
 
 class AuthUI {
   constructor() {
-    this.loginForm = document.getElementById("loginForm");
-    this.authorized = document.getElementById("authorized");
-    this.username = document.getElementById("username");
-    this.password = document.getElementById("password");
-
-    this.registrationForm = document.getElementById("registrationForm");
-    this.userNickName = document.getElementById("userNickName");
-    this.email = document.getElementById("email");
-    this.registrationPassword = document.getElementById("registrationPassword");
-
-    this.trelloIMG = document.getElementById("trello-img");
-
-    this.logInBtn = document.getElementById("logInBtn");
-    this.signUpBtn = document.getElementById("signUpBtn");
-
-    this.logoutBtn = document.getElementById("logoutBtn");
-
-    this.render = this.render.bind(this);
-    this.registerListeners = this.registerListeners.bind(this);
-    this.loginFormSubmit = this.loginFormSubmit.bind(this);
-
-    this.onClickLoginBtn = this.onClickLoginBtn.bind(this);
-    this.onClickSignUpBtn = this.onClickSignUpBtn.bind(this);
-
-    this.onClickLogoutBtn = this.onClickLogoutBtn.bind(this);
-
+    this.createRefsElements();
+    this.bindContext();
     this.registerListeners();
   }
 
@@ -41,6 +17,8 @@ class AuthUI {
       this.logInBtn.classList.add("hide");
       this.signUpBtn.classList.add("hide");
       this.authorized.classList.remove("hide");
+      this.logoutBtn.classList.remove("hide");
+      this.notAuthorized.classList.add("hide");
     } else {
       this.registrationForm.classList.add("hide");
       this.loginForm.classList.remove("hide");
@@ -50,6 +28,7 @@ class AuthUI {
       this.signUpBtn.classList.remove("hide");
       this.signUpBtn.classList.remove("active");
       this.trelloIMG.classList.remove("hide");
+      this.logoutBtn.classList.add("hide");
     }
   }
 
@@ -90,7 +69,11 @@ class AuthUI {
 
   onClickLogoutBtn() {
     window.localStorage.removeItem("token");
-    this.render();
+    emitter.emit("logout");
+  }
+
+  toggleNotAuthorizedBlock() {
+    this.notAuthorized.remove("hide");
   }
 
   registerListeners() {
@@ -109,6 +92,42 @@ class AuthUI {
 
     emitter.subscribe("loggedIn", this.render);
     emitter.subscribe("unauthorizedRequest", this.render);
+    emitter.subscribe("logout", this.render);
+    emitter.subscribe("notAuthorized", this.toggleNotAuthorizedBlock);
+  }
+
+  createRefsElements() {
+    this.loginForm = document.getElementById("loginForm");
+    this.authorized = document.getElementById("authorized");
+    this.username = document.getElementById("username");
+    this.password = document.getElementById("password");
+
+    this.registrationForm = document.getElementById("registrationForm");
+    this.userNickName = document.getElementById("userNickName");
+    this.email = document.getElementById("email");
+    this.registrationPassword = document.getElementById("registrationPassword");
+
+    this.trelloIMG = document.getElementById("trello-img");
+
+    this.logInBtn = document.getElementById("logInBtn");
+    this.signUpBtn = document.getElementById("signUpBtn");
+
+    this.logoutBtn = document.getElementById("logoutBtn");
+
+    this.notAuthorized = document.getElementById("notAuthorized");
+  }
+
+  bindContext() {
+    this.render = this.render.bind(this);
+    this.registerListeners = this.registerListeners.bind(this);
+    this.loginFormSubmit = this.loginFormSubmit.bind(this);
+
+    this.onClickLoginBtn = this.onClickLoginBtn.bind(this);
+    this.onClickSignUpBtn = this.onClickSignUpBtn.bind(this);
+
+    this.onClickLogoutBtn = this.onClickLogoutBtn.bind(this);
+
+    this.toggleNotAuthorizedBlock = this.toggleNotAuthorizedBlock.bind(this);
   }
 }
 
