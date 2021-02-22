@@ -52,16 +52,16 @@ class AuthUI {
   }
 
   onClickLoginBtn() {
-    this.logInBtn.classList.toggle("active");
-    this.signUpBtn.classList.toggle("active");
+    this.logInBtn.classList.add("active");
+    this.signUpBtn.classList.remove("active");
 
     this.loginForm.classList.remove("hide");
     this.registrationForm.classList.add("hide");
   }
 
   onClickSignUpBtn() {
-    this.signUpBtn.classList.toggle("active");
-    this.logInBtn.classList.toggle("active");
+    this.signUpBtn.classList.add("active");
+    this.logInBtn.classList.remove("active");
 
     this.registrationForm.classList.remove("hide");
     this.loginForm.classList.add("hide");
