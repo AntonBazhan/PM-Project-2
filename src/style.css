@@ -1,10 +1,16 @@
-body {
-  color: var(--main__text__colour);
-  font-family: "Montserrat", sans-serif;
-  line-height: var(--main__line__height);
+html {
+  box-sizing: border-box;
 }
 
-/* MOBILE WIDTH SIZE */
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
 
 .container {
   max-width: 1400px;
@@ -18,10 +24,6 @@ body {
 .header__container {
   background-color: #2973c1;
   min-height: 100px;
-}
-
-.header__flex {
-  padding-top: ;
 }
 
 .header__block {
