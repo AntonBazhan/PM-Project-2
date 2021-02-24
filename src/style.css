@@ -1,79 +1,178 @@
-html {
-  box-sizing: border-box;
-}
-
 *,
 *::after,
 *::before {
-  box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .container {
-  max-width: 1400px;
-  margin: 0 auto;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .header__container {
-  padding: 0 15px;
+    padding: 0 15px;
 }
 
 .header__container {
-  background-color: #2973c1;
-  min-height: 100px;
+    background-color: #2973c1;
+    min-height: 100px;
 }
 
 .header__block {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .header__nav__right {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .btn {
-  background-color: #2973c1;
-  border: none;
-  color: #fff;
-  padding: 7px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 17px;
-  font-weight: 700;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
+    background-color: #2973c1;
+    border: none;
+    color: #fff;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .btn.active {
-  background-color: #fff;
-  color: #2973c1;
+    background-color: #fff;
+    color: #2973c1;
 }
 
 .authorized {
-  font-size: 17px;
-  font-weight: 700;
-  padding-top: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    padding-top: 10px;
 }
 
-.trello__container {
-  background-color: #2973c1;
-  padding-top: 20px;
+#card-container {
+    background-color: #2973c1;
+    padding-top: 20px;
 }
 
 .trello__img {
-  width: 100%;
-  padding-bottom: 30px;
+    width: 100%;
+    padding-bottom: 30px;
 }
 
 .hide {
-  display: none;
+    display: none !important;
+}
+
+
+/* ================== board layout =================== */
+
+#board-layout {
+    background-color: rgb(100, 92, 165);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    display: grid;
+    grid-template-rows: max-content auto;
+    grid-gap: 10px;
+    padding: 10px;
+    height: 800px;
+}
+
+.list-layout {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.board-text {
+    font-weight: bold;
+    font-size: 28px;
+    padding: 5px;
+}
+
+.board-lists {
+    display: grid;
+    grid-auto-columns: 275px;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+    height: 100%;
+}
+
+.board-list {
+    background-color: rgb(235, 236, 240);
+    border-radius: 15px;
+    display: grid;
+    /* grid-auto-rows: max-content; */
+    grid-template-rows: max-content 1fr max-content;
+    grid-gap: 10px;
+    /* Chrome use a fixed height */
+    height: 100%;
+    min-height: 250px;
+    padding: 10px;
+}
+
+.list-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card {
+    background-color: blue;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.list-content {
+    height: 100%;
+}
+
+.list-content.bordered {
+    border: black 2.5px dashed;
+}
+
+.alerts-border {
+    border: black 3px dashed;
+    
+    animation: blink 0.8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink { 50% { border-color:#fff ; }  }
+
+.dim {
+    background-color: white;
+    z-index: 2;
+}  
+
+#background {
+    background-color: rgb(100, 92, 165, 0.5);
+    
+    height:100%;
+    width:100%;
+    z-index:1;
+    /* make it overlap your website content */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+.list-new-card {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: red;
+    cursor: pointer;
 }

@@ -4,16 +4,19 @@ import emitter from "./EventEmitter";
 
 export default class AuthService {
   static async login({ username, password }) {
-    HttpService.request({
+    HttpService.makeRequest({
       method: "POST",
       path: "/auth/local",
       body: {
         identifier: username,
         password,
       },
-    }).then((data) => {
-      if (data.jwt) {
-        User.token = data.jwt;
+    }).then((response) => {
+      if (response.status == 200) {
+        User.token = response.response?.jwt ?? '';
+      }
+      
+      if (User.token) {
         emitter.emit("loggedIn");
       } else {
         emitter.emit("notAuthorized");
@@ -26,7 +29,7 @@ export default class AuthService {
     email,
     registrationPassword: password,
   }) {
-    HttpService.request({
+    HttpService.makeRequest({
       method: "POST",
       path: "/auth/local/register",
       body: {

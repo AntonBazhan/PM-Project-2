@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500,500i,600,700,700i&display=swap" rel="stylesheet">
-  <title>Trello</title>
+  <title>Kind of Trello :)</title>
 </head>
 
 <body>
-
+  <div id='background' class="hide"></div>
   <div class="container">
     <header>
       <section class="header__container">
@@ -30,10 +30,8 @@
             </a>
 
             <div class="header__nav__right">
-
               <button id="logInBtn" class="btn login-btn active">
                 Log In
-
               </button>
 
               <button id="signUpBtn" class="btn signup-btn">
@@ -44,13 +42,13 @@
 
           </div>
         </div>
+
         <div class="authorization">
           <form id="loginForm">
             <input type="text" placeholder="Email" id="username" />
             <input type="password" placeholder="Password" id="password" />
             <button type="submit">Login</button>
           </form>
-
         </div>
 
         <div class="registration">
@@ -67,15 +65,85 @@
       </section>
     </header>
 
-    <section class="trello__container">
+    <section id="card-container">
       <div id="trello-img">
-
         <img src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/308998dcb3ed5ab3d01217a4d24ffa03/hero-a.svg"
           alt="Trello image" class="trello__img">
       </div>
     </section>
+
+    <div id="trelloBoard" class="hide">
+      <div class="left">
+        <div class="board-text">Cards go here</div>
+      </div>
+
+      <div id='cardListContainer' class="board-lists">
+        <div id='list1' class="board-list">
+          <div class="list-title">
+            To Do
+          </div>
+          <div class="list-content" data-status='to_do'></div>
+          <div class="list-new-card">+ Add new card</div>
+        </div>
+
+        <div id='list2' class="board-list">
+          <div class="list-title">
+            In Progress
+          </div>
+          <div class="list-content" data-status='in_progress'></div>
+          <div class="list-new-card">+ Add new card</div>
+        </div>
+
+        <div id='list3' class="board-list">
+          <div class="list-title">
+            Testing
+          </div>
+          <div class="list-content" data-status='testing'></div>
+          <div class="list-new-card">+ Add new card</div>
+        </div>
+        
+        <div id='list4' class="board-list">
+          <div class="list-title">
+            Done
+          </div>
+          <div class="list-content" data-status='done'></div>
+          <div class="list-new-card">+ Add new card</div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <div class="cookiesContent dimmed hide" id="cookiesPopup">
+    <button class="close" id="close-dialog">✖</button>
+    <img src="https://www.flaticon.com/svg/static/icons/svg/2913/2913782.svg" alt="cookies-img" />
+    
+    <form id="cardForm">
+      <input type="hidden" id="cardId" />
+      <input type="hidden" id="oldCardStatus" />
+      <label>
+        Title
+        <input type="text" id="cardTitle" />
+      </label>
+      <br>
+      <label>
+        Description
+        <textarea id="cardDescription"></textarea>
+      </label>
+      <br>
+      <label>
+        Status
+        <select id="cardStatus">
+          <option value="to_do">To do</option>
+          <option value="in_progress">In progress</option>
+          <option value="testing">Testing</option>
+          <option value="done">Done</option>
+        </select>
+      </label>
+
+      <button class="accept" type="submit">Send!</button>
+    </form>
+
+  </div>
 
   <script src="./index.js"></script>
 </body>
