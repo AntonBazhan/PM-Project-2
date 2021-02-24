@@ -22,17 +22,17 @@ class TrelloUI {
         this.cardStatus = document.getElementById('cardStatus');
         this.showModal = this.showModal.bind(this);
         this.modalCloseBtn = document.getElementById('close-dialog'); // for modal
-        
+
         this.render = this.render.bind(this);
         this.registerListeners = this.registerListeners.bind(this);
-        
+
         this.getCards = this.getCards.bind(this);
         this.createCardElement = this.createCardElement.bind(this);
         this.addNewCard = this.addNewCard.bind(this);
         this.showCardForm = this.showCardForm.bind(this);
-        this.editCard = this.editCardForm.bind(this);
+        this.editCard = this.editCard.bind(this);
         this.editCardForm = this.editCardForm.bind(this);
-        
+
         this.getCards();
         this.showColumns();
         this.registerListeners();
@@ -191,7 +191,7 @@ class TrelloUI {
 
             this.hideModal();
         }).catch(error => {
-            console.warn('error', error, card);
+            console.warn('error', error);
         });
     }
 
@@ -206,7 +206,7 @@ class TrelloUI {
 
     editCard(card) {
         let cardEl = document.getElementById('card' + card.id);
-        
+
         if (cardEl) {
             cardEl.innerText = card.title;
             cardEl.setAttribute('data-status', card.status);
