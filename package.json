@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.12.17",
-    "@babel/plugin-transform-runtime": "^7.12.17",
+    "@babel/core": "^7.13.1",
+    "@babel/plugin-transform-runtime": "^7.13.4",
     "@babel/runtime": "^7.12.13",
     "eslint": "^7.19.0",
     "eslint-config-airbnb-base": "^14.2.1"
