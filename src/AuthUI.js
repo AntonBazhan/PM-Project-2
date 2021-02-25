@@ -32,6 +32,10 @@ class AuthUI {
     }
   }
 
+  renderUserName(username) {
+    this.showUserNickName.innerHTML = ` Hello, <h3>${username}</h3>`;
+  }
+
   loginFormSubmit(e) {
     e.preventDefault();
 
@@ -70,6 +74,7 @@ class AuthUI {
   onClickLogoutBtn() {
     window.localStorage.removeItem("token");
     emitter.emit("logout");
+    this.showUserNickName.innerHTML = "";
   }
 
   toggleNotAuthorizedBlock() {
@@ -94,6 +99,12 @@ class AuthUI {
     emitter.subscribe("unauthorizedRequest", this.render);
     emitter.subscribe("logout", this.render);
     emitter.subscribe("notAuthorized", this.toggleNotAuthorizedBlock);
+    emitter.subscribe("loggedIn", (username) => {
+      this.renderUserName(username);
+    });
+    emitter.subscribe("userAlreadyExist", () => {
+      this.registrationWarning.innerHTML = "Email already is used";
+    });
   }
 
   createRefsElements() {
@@ -101,6 +112,9 @@ class AuthUI {
     this.authorized = document.getElementById("authorized");
     this.username = document.getElementById("username");
     this.password = document.getElementById("password");
+
+    this.showUserNickName = document.getElementById("showUserNickName");
+    this.registrationWarning = document.getElementById("registrationWarning");
 
     this.registrationForm = document.getElementById("registrationForm");
     this.userNickName = document.getElementById("userNickName");
