@@ -38,7 +38,6 @@ export default class AuthService {
         password,
       },
     }).then((data) => {
-      console.log(data);
       if (data.status === 200) {
         User.token = data.response.jwt;
         emitter.emit("loggedIn", data.response.user.username);

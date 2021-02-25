@@ -39,41 +39,17 @@
                 <button id="signUpBtn" class="btn signup-btn">
                   Sign Up
                 </button>
-              </a> <span id="showUserNickName"></span>
+              </a> <span id="showUserNickName" class="show-user-nickname"></span>
               <button id="logoutBtn" class="btn active hide">Logout</button>
             </div>
 
           </div>
         </div>
 
-        <!-- <div class="authorization">
-          <form id="loginForm">
-            <input type="text" placeholder="Email" id="username" />
-            <input type="password" placeholder="Password" id="password" />
-            <button type="submit">Login</button>
-          </form>
-        </div>
 
-        <div class="registration">
-          <form id="registrationForm" class="hide">
-            <input type="text" placeholder="Nickname" id="userNickName" />
-            <input type="text" placeholder="Email" id="email" />
-            <input type="password" placeholder="Password" id="registrationPassword" />
-
-            <button type="submit">Register</button>
-          </form>
-        </div>
-        <div id="notAuthorized" class='authorized hide'> Wrong login or password!!!</div>
-        <div id="authorized" class="authorized hide">You are logged in</div> -->
       </section>
     </header>
 
-    <!-- <section id="card-container">
-      <div id="trello-img">
-        <img src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/308998dcb3ed5ab3d01217a4d24ffa03/hero-a.svg"
-          alt="Trello image" class="trello__img">
-      </div>
-    </section> -->
 
     <div id="trelloBoard" class="hide">
       <div class="left">
@@ -158,7 +134,7 @@
           <input type="password" placeholder="Password" id="password" class="popup__auth__item" />
           <button type="submit" class="popup__auth__item">Login</button>
           <div id="notAuthorized" class="authorized hide popup__auth__item"> Wrong login or password!!!</div>
-          <div id="authorized" class="authorized hide popup__auth__item">You are logged in</div>
+
         </form>
       </div>
     </div>
@@ -174,7 +150,7 @@
           <input type="text" placeholder="Email" id="email" class="popup__auth__item" />
           <input type="password" placeholder="Password" id="registrationPassword" class="popup__auth__item" />
           <button type="submit" class="popup__auth__item">Register</button>
-          <span id="registrationWarning"></span>
+          <span id="registrationWarning" class="authorized"></span>
         </form>
       </div>
     </div>
