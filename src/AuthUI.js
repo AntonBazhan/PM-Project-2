@@ -17,6 +17,7 @@ class AuthUI {
       this.signUpBtn.classList.add("hide");
       this.logoutBtn.classList.remove("hide");
       this.notAuthorized.classList.add("hide");
+      this.showUserNickName.classList.remove("hide");
     } else {
       this.registrationForm.classList.add("hide");
       this.loginForm.classList.remove("hide");
@@ -25,11 +26,12 @@ class AuthUI {
       this.signUpBtn.classList.remove("hide");
       this.signUpBtn.classList.remove("active");
       this.logoutBtn.classList.add("hide");
+      this.showUserNickName.classList.add("hide");
     }
   }
 
   renderUserName(username) {
-    this.showUserNickName.innerHTML = ` Hello, ${username}`;
+    this.showUserNickName.innerHTML = `Hello, ${username}!`;
   }
 
   loginFormSubmit(e) {
@@ -70,7 +72,6 @@ class AuthUI {
   onClickLogoutBtn() {
     window.localStorage.removeItem("token");
     emitter.emit("logout");
-    this.showUserNickName.innerHTML = "";
   }
 
   toggleNotAuthorizedBlock() {
