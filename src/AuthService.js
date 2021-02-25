@@ -38,8 +38,11 @@ export default class AuthService {
         password,
       },
     }).then((data) => {
-      if (data.status === 200) {
-        User.token = data.response.jwt;
+      if (data.status == 200) {
+        User.token = data.response?.jwt ?? '';
+      }
+      
+      if (User.token) {
         emitter.emit("loggedIn", data.response.user.username);
       } else if (data.status === 400) {
         emitter.emit("userAlreadyExist");

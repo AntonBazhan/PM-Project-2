@@ -1,8 +1,13 @@
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
 }
 
 body {
@@ -127,13 +132,13 @@ body {
 }
 
 .card {
-  background-color: blue;
-  color: white;
-  border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
-  padding: 10px;
-  margin-bottom: 5px;
-  cursor: pointer;
+    background-color: #0079bf;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .list-content {
