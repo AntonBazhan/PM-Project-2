@@ -12,7 +12,7 @@ class AuthUI {
   render() {
     if (User.token) {
       this.registrationForm.classList.add("hide");
-      this.trelloIMG.classList.add("hide");
+      // this.trelloIMG.classList.add("hide");
       this.loginForm.classList.add("hide");
       this.logInBtn.classList.add("hide");
       this.signUpBtn.classList.add("hide");
@@ -27,7 +27,7 @@ class AuthUI {
       this.logInBtn.classList.add("active");
       this.signUpBtn.classList.remove("hide");
       this.signUpBtn.classList.remove("active");
-      this.trelloIMG.classList.remove("hide");
+      // this.trelloIMG.classList.remove("hide");
       this.logoutBtn.classList.add("hide");
     }
   }
@@ -107,7 +107,7 @@ class AuthUI {
     this.email = document.getElementById("email");
     this.registrationPassword = document.getElementById("registrationPassword");
 
-    this.trelloIMG = document.getElementById("trello-img");
+    // this.trelloIMG = document.getElementById("trello-img");
 
     this.logInBtn = document.getElementById("logInBtn");
     this.signUpBtn = document.getElementById("signUpBtn");
