@@ -53,6 +53,7 @@ body {
 .btn.active {
     background-color: #fff;
     color: #2973c1;
+    
 }
 
 .authorized {
@@ -175,4 +176,82 @@ body {
     border-radius: 10px;
     background-color: red;
     cursor: pointer;
+}
+
+.login-btn {
+    text-decoration: none;
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.500);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.popup__container {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.popup__content {
+    background-color: #fff;
+    color: #000;
+    width: 500px;
+    padding: 30px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.popup__close {
+    position: absolute;
+    right: 15px;
+    top: 15px; 
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.popup__title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.popup__auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.popup__auth__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 30px;
+    margin-bottom: 15px;
+    border-radius: 5px;
 }
