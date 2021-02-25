@@ -8,9 +8,9 @@ class EventEmitter {
     this.events[eventName].push(listener);
   }
 
-  emit(eventName) {
+  emit(eventName, payload) {
     if (this.events[eventName]) {
-      this.events[eventName].forEach((listener) => listener());
+      this.events[eventName].forEach((listener) => listener(payload));
     }
   }
 }

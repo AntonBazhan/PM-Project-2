@@ -11,13 +11,13 @@ export default class AuthService {
         identifier: username,
         password,
       },
-    }).then((response) => {
-      if (response.status == 200) {
-        User.token = response.response?.jwt ?? '';
+    }).then((data) => {
+      if (data.status == 200) {
+        User.token = data.response?.jwt ?? "";
       }
-      
+
       if (User.token) {
-        emitter.emit("loggedIn");
+        emitter.emit("loggedIn", data.response.user.username);
       } else {
         emitter.emit("notAuthorized");
       }
@@ -37,13 +37,15 @@ export default class AuthService {
         email,
         password,
       },
-    }).then((response) => {
-      if (response.status == 200) {
-        User.token = response.response?.jwt ?? '';
+    }).then((data) => {
+      if (data.status == 200) {
+        User.token = data.response?.jwt ?? '';
       }
       
       if (User.token) {
-        emitter.emit("loggedIn");
+        emitter.emit("loggedIn", data.response.user.username);
+      } else if (data.status === 400) {
+        emitter.emit("userAlreadyExist");
       } else {
         emitter.emit("notAuthorized");
       }
