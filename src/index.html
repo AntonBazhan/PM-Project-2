@@ -30,20 +30,23 @@
             </a>
 
             <div class="header__nav__right">
-              <button id="logInBtn" class="btn login-btn active">
-                Log In
-              </button>
-
+              <a href="#popup__auth" style="text-decoration: none;">
+                <button id="logInBtn" class="btn login-btn active">
+                  Log In
+                </button>
+              </a>
+              <a href="#popup__registration" style="text-decoration: none;">
               <button id="signUpBtn" class="btn signup-btn">
                 Sign Up
               </button>
+              </a>
               <button id="logoutBtn" class="btn active">Logout</button>
             </div>
 
           </div>
         </div>
 
-        <div class="authorization">
+        <!-- <div class="authorization">
           <form id="loginForm">
             <input type="text" placeholder="Email" id="username" />
             <input type="password" placeholder="Password" id="password" />
@@ -61,7 +64,7 @@
           </form>
         </div>
         <div id="notAuthorized" class='authorized hide'> Wrong login or password!!!</div>
-        <div id="authorized" class="authorized hide">You are logged in</div>
+        <div id="authorized" class="authorized hide">You are logged in</div> -->
       </section>
     </header>
 
@@ -79,9 +82,9 @@
 
       <div id='cardListContainer' class="board-lists">
         <div id='list1' class="board-list">
-          <div class="list-title">
-            To Do
-          </div>
+          <h1 class="list-title">
+
+          </h1>
           <div class="list-content" data-status='to_do'></div>
           <div class="list-new-card">+ Add new card</div>
         </div>
@@ -101,7 +104,7 @@
           <div class="list-content" data-status='testing'></div>
           <div class="list-new-card">+ Add new card</div>
         </div>
-        
+
         <div id='list4' class="board-list">
           <div class="list-title">
             Done
@@ -116,7 +119,7 @@
   <div class="cookiesContent dimmed hide" id="cookiesPopup">
     <button class="close" id="close-dialog">✖</button>
     <img src="https://www.flaticon.com/svg/static/icons/svg/2913/2913782.svg" alt="cookies-img" />
-    
+
     <form id="cardForm">
       <input type="hidden" id="cardId" />
       <input type="hidden" id="oldCardStatus" />
@@ -144,7 +147,37 @@
     </form>
 
   </div>
-
+  <div id="popup__auth" class="popup">
+    <a href="#" class="popup__area"></a>
+    <div class="popup__container">
+      <div class="popup__content">
+        <a href="#" class="popup__close">✖</a>
+        <div class="popup__title">Authorization</div>
+        <form id="loginForm" class="popup__auth">
+          <input type="text" placeholder="Email" id="username" class="popup__auth__item" />
+          <input type="password" placeholder="Password" id="password" class="popup__auth__item" />
+          <button type="submit" class="popup__auth__item">Login</button>
+          <div id="notAuthorized" class="authorized hide popup__auth__item"> Wrong login or password!!!</div>
+          <div id="authorized" class="authorized hide popup__auth__item">You are logged in</div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="popup__registration" class="popup">
+    <a href="#" class="popup__area"></a>
+    <div class="popup__container">
+      <div class="popup__content">
+        <a href="#" class="popup__close">✖</a>
+        <div class="popup__title">Registration</div>
+        <form id="registrationForm" class="popup__auth">
+          <input type="text" placeholder="Nickname" id="userNickName" class="popup__auth__item" />
+          <input type="text" placeholder="Email" id="email" class="popup__auth__item" />
+          <input type="password" placeholder="Password" id="registrationPassword" class="popup__auth__item" />
+          <button type="submit" class="popup__auth__item">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <script src="./index.js"></script>
 </body>
 
