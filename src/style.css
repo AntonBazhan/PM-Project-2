@@ -11,124 +11,124 @@ html {
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .header__container {
-    padding: 0 15px;
+  padding: 0 15px;
 }
 
 .header__container {
-    background-color: #2973c1;
-    min-height: 100px;
+  background-color: #2973c1;
+  min-height: 100px;
 }
 
 .header__block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .header__nav__right {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .btn {
-    background-color: #2973c1;
-    border: none;
-    color: #fff;
-    padding: 7px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 17px;
-    font-weight: 700;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
+  background-color: #2973c1;
+  border: none;
+  color: #fff;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .btn.active {
-    background-color: #fff;
-    color: #0079bf;
+  background-color: #fff;
+  color: #2973c1;
 }
 
 .authorized {
-    font-size: 17px;
-    font-weight: 700;
-    padding-top: 10px;
+  color: red;
+  font-size: 17px;
+  font-weight: 700;
+  padding-top: 10px;
 }
 
 #card-container {
-    background-color: #0079bf;
-    padding-top: 20px;
+  background-color: #2973c1;
+  padding-top: 20px;
 }
 
 .trello__img {
-    width: 100%;
-    padding-bottom: 30px;
+  width: 100%;
+  padding-bottom: 30px;
 }
 
 .hide {
-    display: none !important;
+  display: none !important;
 }
-
 
 /* ================== board layout =================== */
 
 #board-layout {
-    background-color: rgb(100, 92, 165);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    display: grid;
-    grid-template-rows: max-content auto;
-    grid-gap: 10px;
-    padding: 10px;
-    height: 800px;
+  background-color: rgb(100, 92, 165);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  display: grid;
+  grid-template-rows: max-content auto;
+  grid-gap: 10px;
+  padding: 10px;
+  height: 800px;
 }
 
 .list-layout {
-    display: grid;
-    grid-gap: 10px;
+  display: grid;
+  grid-gap: 10px;
 }
 
 .board-text {
-    font-weight: bold;
-    font-size: 28px;
-    padding: 5px;
+  font-weight: bold;
+  font-size: 28px;
+  padding: 5px;
 }
 
 .board-lists {
-    display: grid;
-    grid-auto-columns: 275px;
-    grid-auto-flow: column;
-    grid-gap: 10px;
-    height: 100%;
+  display: grid;
+  grid-auto-columns: 275px;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+  height: 100%;
 }
 
 .board-list {
-    background-color: rgb(235, 236, 240);
-    border-radius: 15px;
-    display: grid;
-    /* grid-auto-rows: max-content; */
-    grid-template-rows: max-content 1fr max-content;
-    grid-gap: 10px;
-    /* Chrome use a fixed height */
-    height: 100%;
-    min-height: 250px;
-    padding: 10px;
+  background-color: rgb(235, 236, 240);
+  border-radius: 15px;
+  display: grid;
+  /* grid-auto-rows: max-content; */
+  grid-template-rows: max-content 1fr max-content;
+  grid-gap: 10px;
+  /* Chrome use a fixed height */
+  height: 100%;
+  min-height: 250px;
+  padding: 10px;
 }
 
 .list-title {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .card {
@@ -142,42 +142,130 @@ body {
 }
 
 .list-content {
-    height: 100%;
+  height: 100%;
 }
 
 .list-content.bordered {
-    border: black 2.5px dashed;
+  border: black 2.5px dashed;
 }
 
 .alerts-border {
-    border: black 3px dashed;
-    
-    animation: blink 0.8s;
-    animation-iteration-count: infinite;
+  border: black 3px dashed;
+
+  animation: blink 0.8s;
+  animation-iteration-count: infinite;
 }
 
-@keyframes blink { 50% { border-color:#fff ; }  }
+@keyframes blink {
+  50% {
+    border-color: #fff;
+  }
+}
 
 .dim {
-    background-color: white;
-    z-index: 2;
-}  
+  background-color: white;
+  z-index: 2;
+}
 
 #background {
-    background-color: rgb(100, 92, 165, 0.5);
-    
-    height:100%;
-    width:100%;
-    z-index:1;
-    /* make it overlap your website content */
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+  background-color: rgb(100, 92, 165, 0.5);
+
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  /* make it overlap your website content */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
 .list-new-card {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: red;
-    cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: red;
+  cursor: pointer;
+}
+
+.login-btn {
+  text-decoration: none;
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup__area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.popup__container {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+
+.popup__content {
+  background-color: #fff;
+  color: #000;
+  width: 500px;
+  padding: 30px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.popup__close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.popup__title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.popup__auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.popup__auth__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 30px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.show-user-nickname {
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 600;
 }

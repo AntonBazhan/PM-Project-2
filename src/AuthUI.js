@@ -12,24 +12,26 @@ class AuthUI {
   render() {
     if (User.token) {
       this.registrationForm.classList.add("hide");
-      this.trelloIMG.classList.add("hide");
       this.loginForm.classList.add("hide");
       this.logInBtn.classList.add("hide");
       this.signUpBtn.classList.add("hide");
-      this.authorized.classList.remove("hide");
       this.logoutBtn.classList.remove("hide");
       this.notAuthorized.classList.add("hide");
+      this.showUserNickName.classList.remove("hide");
     } else {
       this.registrationForm.classList.add("hide");
       this.loginForm.classList.remove("hide");
-      this.authorized.classList.add("hide");
       this.logInBtn.classList.remove("hide");
       this.logInBtn.classList.add("active");
       this.signUpBtn.classList.remove("hide");
       this.signUpBtn.classList.remove("active");
-      this.trelloIMG.classList.remove("hide");
       this.logoutBtn.classList.add("hide");
+      this.showUserNickName.classList.add("hide");
     }
+  }
+
+  renderUserName(username) {
+    this.showUserNickName.innerHTML = `Hello, ${username}!`;
   }
 
   loginFormSubmit(e) {
@@ -94,20 +96,26 @@ class AuthUI {
     emitter.subscribe("unauthorizedRequest", this.render);
     emitter.subscribe("logout", this.render);
     emitter.subscribe("notAuthorized", this.toggleNotAuthorizedBlock);
+    emitter.subscribe("loggedIn", (username) => {
+      this.renderUserName(username);
+    });
+    emitter.subscribe("userAlreadyExist", () => {
+      this.registrationWarning.innerHTML = "Email already is used";
+    });
   }
 
   createRefsElements() {
     this.loginForm = document.getElementById("loginForm");
-    this.authorized = document.getElementById("authorized");
     this.username = document.getElementById("username");
     this.password = document.getElementById("password");
+
+    this.showUserNickName = document.getElementById("showUserNickName");
+    this.registrationWarning = document.getElementById("registrationWarning");
 
     this.registrationForm = document.getElementById("registrationForm");
     this.userNickName = document.getElementById("userNickName");
     this.email = document.getElementById("email");
     this.registrationPassword = document.getElementById("registrationPassword");
-
-    this.trelloIMG = document.getElementById("trello-img");
 
     this.logInBtn = document.getElementById("logInBtn");
     this.signUpBtn = document.getElementById("signUpBtn");
