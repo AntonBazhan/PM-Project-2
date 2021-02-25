@@ -78,7 +78,7 @@
       </div>
 
       <div id='cardListContainer' class="board-lists">
-        <div id='list1' class="board-list">
+        <!-- <div id='list1' class="board-list">
           <div class="list-title">
             To Do
           </div>
@@ -108,14 +108,14 @@
           </div>
           <div class="list-content" data-status='done'></div>
           <div class="list-new-card">+ Add new card</div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 
-  <div class="cookiesContent dimmed hide" id="cookiesPopup">
+  <div class="modalContent dimmed hide" id="cookiesPopup">
     <button class="close" id="close-dialog">✖</button>
-    <img src="https://www.flaticon.com/svg/static/icons/svg/2913/2913782.svg" alt="cookies-img" />
+    <img src="https://icons-for-free.com/iconfiles/png/512/logo+social+trello+icon-1320194696754621808.png" alt="cookies-img" />
     
     <form id="cardForm">
       <input type="hidden" id="cardId" />
@@ -124,12 +124,10 @@
         Title
         <input type="text" id="cardTitle" />
       </label>
-      <br>
       <label>
         Description
         <textarea id="cardDescription"></textarea>
       </label>
-      <br>
       <label>
         Status
         <select id="cardStatus">
@@ -140,7 +138,10 @@
         </select>
       </label>
 
-      <button class="accept" type="submit">Send!</button>
+      <div class="button-block">
+        <button class="btn-accept" type="submit">Send</button>
+        <button id="deleteButton" class="btn-remove" type="button">Remove</button>
+      </div>
     </form>
 
   </div>

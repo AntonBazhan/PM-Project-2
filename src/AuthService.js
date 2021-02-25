@@ -37,9 +37,12 @@ export default class AuthService {
         email,
         password,
       },
-    }).then((data) => {
-      if (data.jwt) {
-        User.token = data.jwt;
+    }).then((response) => {
+      if (response.status == 200) {
+        User.token = response.response?.jwt ?? '';
+      }
+      
+      if (User.token) {
         emitter.emit("loggedIn");
       } else {
         emitter.emit("notAuthorized");

@@ -1,8 +1,13 @@
 *,
 *::after,
 *::before {
+    box-sizing: inherit;
     margin: 0;
     padding: 0;
+}
+
+html {
+    box-sizing: border-box;
 }
 
 body {
@@ -52,7 +57,7 @@ body {
 
 .btn.active {
     background-color: #fff;
-    color: #2973c1;
+    color: #0079bf;
 }
 
 .authorized {
@@ -62,7 +67,7 @@ body {
 }
 
 #card-container {
-    background-color: #2973c1;
+    background-color: #0079bf;
     padding-top: 20px;
 }
 
@@ -127,7 +132,7 @@ body {
 }
 
 .card {
-    background-color: blue;
+    background-color: #0079bf;
     color: white;
     border-radius: 3px;
     box-shadow: 0 1px 0 rgba(9, 30, 66, .25);

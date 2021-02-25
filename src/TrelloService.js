@@ -1,12 +1,17 @@
 import HttpService from './HttpService';
 
 const cardsPath = '/cards';
+const statusesPath = '/statuses';
 
 export default class TrelloService {
   static async getCards() {
     return HttpService.makeRequest({ path: cardsPath });
   }
-
+  
+  static async getCardInfo(id) {
+    return HttpService.makeRequest({ path: cardsPath + `/${id}` });
+  }
+  
   static async createCard(card) {
     return HttpService.makeRequest({
       path: cardsPath,
@@ -28,5 +33,9 @@ export default class TrelloService {
       path: `${cardsPath}/${id}`,
       method: 'DELETE',
     });
+  }
+
+  static async getStatuses() {
+    return HttpService.makeRequest({ path: statusesPath });
   }
 }
