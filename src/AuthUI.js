@@ -18,6 +18,7 @@ class AuthUI {
       this.logoutBtn.classList.remove("hide");
       this.notAuthorized.classList.add("hide");
       this.showUserNickName.classList.remove("hide");
+      this.trelloBoard.classList.remove("hide");
     } else {
       this.registrationForm.classList.add("hide");
       this.loginForm.classList.remove("hide");
@@ -27,7 +28,11 @@ class AuthUI {
       this.signUpBtn.classList.remove("active");
       this.logoutBtn.classList.add("hide");
       this.showUserNickName.classList.add("hide");
+      this.trelloBoard.classList.add("hide");
     }
+    // sorry about that -_-
+    document.getElementsByClassName('popup__close')[0].click();
+    document.getElementsByClassName('popup__close')[1].click();
   }
 
   renderUserName(username) {
@@ -42,10 +47,10 @@ class AuthUI {
       password: this.password.value,
     });
   }
-
+  
   registrationFormSubmit(e) {
     e.preventDefault();
-
+    
     AuthService.register({
       userNickName: this.userNickName.value,
       email: this.email.value,
@@ -111,6 +116,8 @@ class AuthUI {
 
     this.showUserNickName = document.getElementById("showUserNickName");
     this.registrationWarning = document.getElementById("registrationWarning");
+
+    this.trelloBoard = document.getElementById('trelloBoard');
 
     this.registrationForm = document.getElementById("registrationForm");
     this.userNickName = document.getElementById("userNickName");
