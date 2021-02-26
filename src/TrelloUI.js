@@ -88,6 +88,7 @@ class TrelloUI {
               { "id": 4, "title": "Сделано", "value": "done", "published_at": "2021-02-17T06:41:47.808Z", "created_at": "2021-02-17T06:41:46.824Z", "updated_at": "2021-02-17T06:41:47.826Z" }
           ];
           statuses.forEach(this.createCardColumn); */
+          this.cardListContainer.innerHTML = ''
           response.response.forEach(this.createCardColumn);
 
           // т.к. это в цикле нету асинхронных операций, карточки будут риквеститься после построения колонок
