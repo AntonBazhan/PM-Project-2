@@ -19,6 +19,7 @@ class AuthUI {
       this.notAuthorized.classList.add("hide");
       this.showUserNickName.classList.remove("hide");
       this.trelloBoard.classList.remove("hide");
+      this.renderUserName();
     } else {
       this.registrationForm.classList.add("hide");
       this.loginForm.classList.remove("hide");
@@ -35,8 +36,10 @@ class AuthUI {
     document.getElementsByClassName('popup__close')[1].click();
   }
 
-  renderUserName(username) {
-    this.showUserNickName.innerHTML = `Hello, ${username}!`;
+  renderUserName() {
+    if (User.username) {
+      this.showUserNickName.innerHTML = `Hello, ${User.username}!`;
+    }
   }
 
   loginFormSubmit(e) {
@@ -76,6 +79,7 @@ class AuthUI {
 
   onClickLogoutBtn() {
     window.localStorage.removeItem("token");
+    window.localStorage.removeItem("username");
     emitter.emit("logout");
   }
 
@@ -101,9 +105,9 @@ class AuthUI {
     emitter.subscribe("unauthorizedRequest", this.render);
     emitter.subscribe("logout", this.render);
     emitter.subscribe("notAuthorized", this.toggleNotAuthorizedBlock);
-    emitter.subscribe("loggedIn", (username) => {
+    /* emitter.subscribe("loggedIn", (username) => {
       this.renderUserName(username);
-    });
+    }); */
     emitter.subscribe("userAlreadyExist", () => {
       this.registrationWarning.innerHTML = "Email already is used";
     });

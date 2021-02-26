@@ -13,7 +13,8 @@ export default class AuthService {
       },
     }).then((data) => {
       if (data.status == 200) {
-        User.token = data.response?.jwt ?? "";
+        User.token = data.response?.jwt ?? '';
+        User.username = data.response?.user?.username ?? '';
       }
 
       if (User.token) {
@@ -40,6 +41,7 @@ export default class AuthService {
     }).then((data) => {
       if (data.status == 200) {
         User.token = data.response?.jwt ?? '';
+        User.username = data.response?.user?.username ?? '';
       }
       
       if (User.token) {
